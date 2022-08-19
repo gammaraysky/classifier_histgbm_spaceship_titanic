@@ -2,7 +2,7 @@
 EDA and classifier modelling for Kaggle 'Spaceship Titanic' Playground Competition
 
 ### Brief
-During the journey, the spaceship collided with a space-time anomaly resulting in some passengers being 'transported' and have disappeared. The task is to create a predictive model to predict which passengers may have 'transported' in the unlabelled test data.
+During the journey of Spaceship Titanic, the spaceship collided with a space-time anomaly resulting in some passengers being 'transported' and have disappeared. The task is to create a predictive model to predict which passengers may have 'transported' in the unlabelled test data.
 
 ### Summary
 - EDA on dataset
