@@ -4,9 +4,10 @@ EDA and classifier modelling for Kaggle 'Spaceship Titanic' Playground Competiti
 ### Brief
 During the journey of Spaceship Titanic, the spaceship collided with a space-time anomaly resulting in some passengers being 'transported' and have disappeared. The task is to create a predictive model to predict which passengers may have 'transported' in the unlabelled test data.
 
-### Summary
-- EDA on dataset
-- **Missing Data**
+### Notebook Summary
+EDA on dataset
+
+**Missing Data**
   - Imputing data based on EDA analysis
     - **Continuous Data:**
       - Those in CryoSleep did not spend any money on RoomService, FoodCourt, ShoppingMall, Spa, VRDeck
@@ -17,14 +18,16 @@ During the journey of Spaceship Titanic, the spaceship collided with a space-tim
       - for missing values in CryoSleep, take it under the assumption that passengers requesting for CryoSleep would have to be pre-registered, thus missing values filled with False.
   - Imputing the rest of the numerical data with KNNImputer
   - For the remaining missing categoricals, leave it as-is, as OneHotEncoder will by default treat it as it's own category later on during preprocessing (from sklearn 0.24 onwards). 
-- **Feature Engineering**
+
+**Feature Engineering**
   - groupsize engineered from value counts of PassengerId prefixes
   - Cabin is in the format of Deck/Number/Side (e.g. A/1/P or B/300/S) where side is port or starboard.
     - cabin_deck, cabin_number, cabin_side are parsed out with regex.
     - cabin_number ranges from 1-1800+, so it's binned into groups of 100
   - Age is binned into groups of 3 years
   - Columns RoomService, FoodCourt, ShoppingMall, Spa, VRDeck were summed into sumspend, and for all of these, log-transformed values were also created. Also, the value ranges are too wide, with most people spending $0 but some spent as much as $20,000 at individual spots. Thus we used RobustScaler later on.
-- **Model Selection**
+
+**Model Selection**
   - using sklearn pipelines, we use RobustScaler on numerical values and OneHotEncoder and OrdinalEncoder(only for HGBM)
   - attempted GaussianNB, LogisticRegression, SVC, AdaBoostClassifier, RandomForestClassifier, HistGradientBoostingClassifier (with slight tuning)
   - attempted PCA to hopefully denoise/compress/reduce multicollinearity, and tried with the above classifiers.
