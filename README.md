@@ -1,4 +1,4 @@
-# spaceship_titanic_classifier
+# spaceship titanic classifier using HistGBM
 EDA and classifier modelling for Kaggle 'Spaceship Titanic' Playground Competition
 
 ### Brief
